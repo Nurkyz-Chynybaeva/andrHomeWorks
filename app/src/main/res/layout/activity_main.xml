@@ -41,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -50,28 +51,23 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/clean"
                 style="@style/BaseButton"
-                android:text="@string/clear"
-
-               />
+                android:text="@string/clear" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/firstBracket"
                 style="@style/BaseButton"
-                android:text="@string/firstBracket"
-                />
+                android:text="@string/firstBracket" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/secondBracket"
                 style="@style/BaseButton"
-                android:text="@string/secondBracket"/>
+                android:text="@string/secondBracket" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/division"
                 style="@style/BaseButton"
-                android:text="@string/div"/>
-
+                android:text="@string/div" />
         </androidx.appcompat.widget.LinearLayoutCompat>
-
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -82,25 +78,23 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/seven"
                 style="@style/BaseButton"
-                android:text="@string/seven"/>
+                android:text="@string/seven" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/eight"
                 style="@style/BaseButton"
-                android:text="@string/eight"/>
+                android:text="@string/eight" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/nine"
                 style="@style/BaseButton"
-                android:text="@string/nine"/>
+                android:text="@string/nine" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/multiplication"
                 style="@style/BaseButton"
                 android:text="@string/multiplication" />
-
         </androidx.appcompat.widget.LinearLayoutCompat>
-
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -111,7 +105,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/four"
                 style="@style/BaseButton"
-                android:text="@string/four"/>
+                android:text="@string/four" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/five"
@@ -121,13 +115,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/six"
                 style="@style/BaseButton"
-                android:text="@string/six"/>
+                android:text="@string/six" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/plus"
                 style="@style/BaseButton"
-                android:text="@string/plus"/>
-
+                android:text="@string/plus" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -144,18 +137,17 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/two"
                 style="@style/BaseButton"
-                android:text="@string/two"/>
+                android:text="@string/two" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/three"
                 style="@style/BaseButton"
-                android:text="@string/three"/>
+                android:text="@string/three" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/minus"
                 style="@style/BaseButton"
                 android:text="@string/minus" />
-
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -167,12 +159,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/point"
                 style="@style/BaseButton"
-                android:text="@string/point"/>
+                android:text="@string/point" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zero"
                 style="@style/BaseButton"
-                android:text="@string/zero"/>
+                android:text="@string/zero" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/back"
@@ -185,5 +177,4 @@
                 android:text="@string/equ" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 </androidx.appcompat.widget.LinearLayoutCompat>
