@@ -1,189 +1,94 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2F344C"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/lightBlue"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/app_name" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/expression"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:ellipsize="start"
-        android:gravity="end"
-        android:singleLine="true"
-        android:text=""
-        android:textColor="@color/white"
-        android:textSize="40sp" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/result"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:ellipsize="end"
-        android:gravity="end"
-        android:maxLines="1"
-        android:text=""
-        android:textColor="@color/white"
-        android:textSize="40sp" />
-
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/clean"
-                style="@style/BaseButton"
-                android:text="@string/clear"
-
-               />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/firstBracket"
-                style="@style/BaseButton"
-                android:text="@string/firstBracket"
-                />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/secondBracket"
-                style="@style/BaseButton"
-                android:text="@string/secondBracket"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/division"
-                style="@style/BaseButton"
-                android:text="@string/div"/>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/seven"
-                style="@style/BaseButton"
-                android:text="@string/seven"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/eight"
-                style="@style/BaseButton"
-                android:text="@string/eight"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/nine"
-                style="@style/BaseButton"
-                android:text="@string/nine"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/multiplication"
-                style="@style/BaseButton"
-                android:text="@string/multiplication" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/four"
-                style="@style/BaseButton"
-                android:text="@string/four"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/five"
-                style="@style/BaseButton"
-                android:text="@string/five" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/six"
-                style="@style/BaseButton"
-                android:text="@string/six"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/plus"
-                style="@style/BaseButton"
-                android:text="@string/plus"/>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/one"
-                style="@style/BaseButton"
-                android:text="@string/one" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/two"
-                style="@style/BaseButton"
-                android:text="@string/two"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/three"
-                style="@style/BaseButton"
-                android:text="@string/three"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/minus"
-                style="@style/BaseButton"
-                android:text="@string/minus" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/point"
-                style="@style/BaseButton"
-                android:text="@string/point"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zero"
-                style="@style/BaseButton"
-                android:text="@string/zero"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/back"
-                style="@style/BaseButton"
-                android:text="@string/back" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/equals"
-                style="@style/BaseButton"
-                android:text="@string/equ" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/email"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="To"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="30sp"-->
+<!--        android:layout_margin="20dp"-->
+<!--        />-->
+<!--    <androidx.appcompat.widget.AppCompatEditText-->
+<!--        android:id="@+id/emailC"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="email"-->
+<!--        android:layout_marginHorizontal="20dp"-->
+<!--        />-->
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/subject"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Subject:"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="30sp"-->
+<!--        android:layout_margin="20dp"-->
+<!--        />-->
+<!--    <androidx.appcompat.widget.AppCompatEditText-->
+<!--        android:id="@+id/subjectC"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="subject"-->
+<!--        android:layout_marginHorizontal="20dp"-->
+<!--        />-->
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/message"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Message:"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="30sp"-->
+<!--        android:layout_margin="20dp"-->
+<!--        />-->
+<!--    <androidx.appcompat.widget.AppCompatEditText-->
+<!--        android:id="@+id/messageC"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="message"-->
+<!--        android:lines="7"-->
+<!--        android:gravity="start"-->
+<!--        android:layout_marginHorizontal="20dp"-->
+<!--        />-->
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_margin="20dp"-->
+<!--        android:text="send"-->
+<!--        />-->
+    <!--<com.google.android.material.textfield.TextInputLayout-->
+    <!--    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+    <!--    android:id="@+id/emailContainer"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    android:layout_marginHorizontal="20dp"-->
+    <!--    android:layout_marginTop="30dp"-->
+    <!--    app:layout_constraintTop_toTopOf="parent"-->
+    <!--    app:layout_constraintStart_toStartOf="parent"-->
+    <!--    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--    app:helperText="required"-->
+    <!--    app:helperTextTextColor="@color/red"-->
+    <!--    >-->
+    <!--    <androidx.appcompat.widget.AppCompatEditText-->
+    <!--        android:id="@+id/editEmail"-->
+    <!--        android:hint="email"-->
+    <!--        android:inputType="textEmailAddress"-->
+    <!--        android:lines="1"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
 </androidx.appcompat.widget.LinearLayoutCompat>
