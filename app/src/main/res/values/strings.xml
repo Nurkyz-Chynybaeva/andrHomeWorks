@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">AndrHomeWorks</string>
     <string name="clear">AS</string>
     <string name="firstBracket">(</string>
     <string name="secondBracket">)</string>

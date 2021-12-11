@@ -1,5 +1,5 @@
 package com.example.andrhomeworks
 
 interface OnClickButton {
-    fun onClick(name: String, password: String)
+    fun onClick(userName: String, userPassword: String)
 }

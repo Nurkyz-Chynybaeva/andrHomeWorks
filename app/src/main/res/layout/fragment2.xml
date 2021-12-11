@@ -3,19 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="enter the name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="enter the password"
-        app:layout_constraintTop_toBottomOf="@id/edit1"/>
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/txtF2"
+      android:text="This is main screen"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:textSize="29sp"
+      android:textColor="@color/black"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
 </androidx.constraintlayout.widget.ConstraintLayout>
