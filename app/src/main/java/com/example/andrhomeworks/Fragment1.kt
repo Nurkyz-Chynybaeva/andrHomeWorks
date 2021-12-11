@@ -23,11 +23,11 @@ class Fragment1 : Fragment(R.layout.fragment1) {
 //        toolbar.setNavigationOnClickListener {
 //            // --
 //        }
-
-        toolbar.inflateMenu(R.menu.menu)
-        toolbar.setOnMenuItemClickListener {
-            //
-        }
+//
+//        toolbar.inflateMenu(R.menu.menu)
+//        toolbar.setOnMenuItemClickListener {
+//            //
+//        }
 
     }
 
