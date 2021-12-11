@@ -6,46 +6,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ECCBCB">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarF1"
         layout_height=""
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/blue"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/app_nameF" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:title="@string/app_nameMain" />
+    <androidx.appcompat.widget.AppCompatTextView
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt1About"
-        android:textSize="15sp"
+        android:text="Main Page"
+        android:textSize="29sp"
         android:textColor="@color/black"
+        android:id="@+id/txtF1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hi, my name is Nurkyz"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="20dp"
-        />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt2About"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I'm 19 y.o"
-        app:layout_constraintTop_toBottomOf="@id/txt1About"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="20dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

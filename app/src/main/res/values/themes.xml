@@ -13,14 +13,4 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-
-
-    <style name="BaseButton">
-        <item name="android:textSize">@dimen/textSize</item>
-        <item name="android:background">@drawable/bg_button</item>
-        <item name="android:textColor">@drawable/text_color</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
-    </style>
 </resources>
