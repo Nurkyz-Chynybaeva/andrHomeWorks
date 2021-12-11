@@ -10,14 +10,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 class Fragment1 : Fragment(R.layout.fragment1) {
-    private lateinit var listener: OnClickButton
+    private lateinit var listener: Navigator
     private var Name: EditText? = null
     private var Password: EditText? = null
     private var Login: Button? = null
     private var counter = 5
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        listener = context as OnClickButton
+        listener = context as Navigator
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,9 +30,12 @@ class Fragment1 : Fragment(R.layout.fragment1) {
     }
 
     private fun onClick(userName: String, userPassword: String) {
-        if (userName == "Chyn" && userPassword == "2902") {
-            val intent = Intent(requireContext(), MainActivity2::class.java)
-            startActivity(intent)
+        if (userName == "Chyn" && userPassword == "2902"){
+            listener.showFragment2(userName, userPassword)
+
+            val eName = Name?.text.toString() ?: ""
+            val ePass = Password?.text.toString() ?: ""
+            Login?.isEnabled = eName.isNotEmpty() && ePass.isNotEmpty()
         } else {
             counter--
             if (counter == 0) {

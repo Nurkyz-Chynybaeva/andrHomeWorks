@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 
-class MainActivity : AppCompatActivity(), OnClickButton {
+class MainActivity : AppCompatActivity(), Navigator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -14,9 +14,15 @@ class MainActivity : AppCompatActivity(), OnClickButton {
             .commit()
     }
 
-    override fun onClick(name: String, password: String) {
+    override fun showFragment2(userName: String, userPassword: String) {
+        val fragment2 = Fragment2()
+//        val bundle = Bundle()
+//        bundle.putString("keyL", userName)
+//        bundle.putString("keyP", userPassword)
+//        fragment2.arguments = bundle
+
         supportFragmentManager.beginTransaction()
-            .add(R.id.container, Fragment2())
+            .replace(R.id.container, fragment2)
             .commit()
     }
 

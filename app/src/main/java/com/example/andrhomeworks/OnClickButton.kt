@@ -1,5 +1,5 @@
 package com.example.andrhomeworks
 
-interface OnClickButton {
-    fun onClick(userName: String, userPassword: String)
+interface Navigator {
+    fun showFragment2(userName: String, userPassword: String)
 }
