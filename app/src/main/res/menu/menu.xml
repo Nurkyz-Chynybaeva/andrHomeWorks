@@ -2,18 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu1"
+        android:id="@+id/about"
         android:icon="@mipmap/ic_launcher"
-        android:title="about me"
+        android:title="about"
         app:showAsAction="withText" />
-    <item
-        android:id="@+id/menu2"
-        android:icon="@mipmap/ic_launcher"
-        android:title="menu 1"
-        app:showAsAction="withText" />
-    <item
-        android:id="@+id/menu3"
-        android:icon="@mipmap/ic_launcher"
-        android:title="menu 1"
-        app:showAsAction="withText" />
+
 </menu>
