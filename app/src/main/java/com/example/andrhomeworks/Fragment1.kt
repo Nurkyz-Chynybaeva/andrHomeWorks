@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment
 
 class Fragment1 : Fragment(R.layout.fragment1) {
     private lateinit var listener: Navigator
-    private var Name: EditText? = null
-    private var Password: EditText? = null
+    private var Name: EditText? = null // переменные с маленькой буквы, в camelCase стиле
+    private var Password: EditText? = null // -> lateinit var
     private var Login: Button? = null
     private var counter = 5
     override fun onAttach(context: Context) {
@@ -35,7 +35,7 @@ class Fragment1 : Fragment(R.layout.fragment1) {
 
             val eName = Name?.text.toString() ?: ""
             val ePass = Password?.text.toString() ?: ""
-            Login?.isEnabled = eName.isNotEmpty() && ePass.isNotEmpty()
+            Login?.isEnabled = eName.isNotEmpty() && ePass.isNotEmpty() // в этой строчке нет смысла. Здесь логин и пароль никогда не будут пустыми
         } else {
             counter--
             if (counter == 0) {
