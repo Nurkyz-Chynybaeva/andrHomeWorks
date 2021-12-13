@@ -58,10 +58,6 @@ class Fragment1 : Fragment(R.layout.fragment1) {
     private fun onClick(userName: String, userPassword: String) {
         if (userName == "Chyn" && userPassword == "2902") {
             listener.showFragment2(userName, userPassword)
-
-            val eName = name?.text.toString() ?: ""
-            val ePass = password?.text.toString() ?: ""
-            button?.isEnabled = eName.isNotEmpty() && ePass.isNotEmpty()
         } else {
             Toast.makeText(requireContext(), "error!", Toast.LENGTH_SHORT).show()
         }
