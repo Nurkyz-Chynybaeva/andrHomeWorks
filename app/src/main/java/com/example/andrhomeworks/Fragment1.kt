@@ -20,7 +20,6 @@ class Fragment1 : Fragment(R.layout.fragment1) {
                         .add(R.id.fragmentContainer, Fragment2())
                         .commit()
                     Toast.makeText(requireActivity(), "About me", Toast.LENGTH_SHORT).show()
-
                 true
             }
             return view

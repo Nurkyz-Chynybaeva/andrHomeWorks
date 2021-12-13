@@ -10,5 +10,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer, Fragment1())
             .commit()
+
     }
 }

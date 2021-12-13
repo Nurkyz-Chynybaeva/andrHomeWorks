@@ -18,11 +18,9 @@ class Fragment2 : Fragment(R.layout.fragment2) {
 
         toolbar.setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material)
         toolbar.setNavigationOnClickListener {
-            requireActivity().onBackPressed()
-
+            requireActivity().onBackPressedDispatcher
             Toast.makeText(requireActivity(), "Main page", Toast.LENGTH_SHORT).show()
         }
-        return inflater.inflate(R.layout.fragment1, container, false)
+        return view
     }
-
 }
