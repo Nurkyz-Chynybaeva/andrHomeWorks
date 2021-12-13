@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
-import androidx.navigation.Navigation.findNavController
 
 class Fragment2 : Fragment(R.layout.fragment2) {
     override fun onCreateView(
