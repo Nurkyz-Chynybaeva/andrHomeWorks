@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.navigation.Navigation.findNavController
 
 class Fragment2 : Fragment(R.layout.fragment2) {
     override fun onCreateView(
@@ -18,12 +20,11 @@ class Fragment2 : Fragment(R.layout.fragment2) {
 
         toolbar.setNavigationIcon(androidx.appcompat.R.drawable.abc_ic_ab_back_material)
         toolbar.setNavigationOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, Fragment1())
-                .commit()
+            requireActivity().onBackPressed()
+
             Toast.makeText(requireActivity(), "Main page", Toast.LENGTH_SHORT).show()
         }
-        return view
+        return inflater.inflate(R.layout.fragment1, container, false)
     }
 
 }
