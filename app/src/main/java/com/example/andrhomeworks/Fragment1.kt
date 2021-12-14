@@ -22,7 +22,7 @@ class Fragment1 : Fragment(R.layout.fragment1) {
         val password = view.findViewById<AppCompatEditText>(R.id.edit2)
         btn2.setOnClickListener {
             if (name.text.toString().isNotEmpty() && password.text.toString().isNotEmpty()) {
-
+                // и? если оба поля не пустые ничего не произойдет ?
             }
         }
     }
