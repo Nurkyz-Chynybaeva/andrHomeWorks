@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
 
 class Fragment1 : Fragment(R.layout.fragment1) {
@@ -30,26 +32,26 @@ class Fragment1 : Fragment(R.layout.fragment1) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         name = view.findViewById(R.id.etName)
-        password = view.findViewById<View>(R.id.etPassword) as EditText
-        button = view.findViewById<View>(R.id.btnLogin) as Button
-        button!!.setOnClickListener {
+        password = view.findViewById<AppCompatEditText>(R.id.etPassword)
+        button = view.findViewById<AppCompatButton>(R.id.btnLogin)
+        button.setOnClickListener {
             onClick(
-                name!!.text.toString(),
-                password!!.text.toString()
+                name.text.toString(),
+                password.text.toString()
             )
         }
-        val with = with(name) { this?.addTextChangedListener(loginTextWatcher) }
+        val with = with(name) { this.addTextChangedListener(loginTextWatcher) }
         with(password) {
-            this?.addTextChangedListener(loginTextWatcher)
+            this.addTextChangedListener(loginTextWatcher)
         }
     }
 
     private val loginTextWatcher: TextWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-            val usernameInput = name!!.text.toString().trim { it <= ' ' }
-            val passwordInput = password!!.text.toString().trim { it <= ' ' }
-            button?.setEnabled(!usernameInput.isEmpty() && !passwordInput.isEmpty())
+            val usernameInput = name.text.toString().trim { it <= ' ' }
+            val passwordInput = password.text.toString().trim { it <= ' ' }
+            button.isEnabled = usernameInput.isNotEmpty() && passwordInput.isNotEmpty()
         }
 
         override fun afterTextChanged(s: Editable) {}
