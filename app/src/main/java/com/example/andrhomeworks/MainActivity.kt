@@ -1,8 +1,6 @@
 package com.example.andrhomeworks
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
 class MainActivity : AppCompatActivity(), OnClickButton {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -12,8 +10,6 @@ class MainActivity : AppCompatActivity(), OnClickButton {
             .add(R.id.container, Fragment1())
             .commit()
     }
-
-
     override fun onClick(name: String, password: String) {
         val fragment2 = Fragment2()
         val bundle = Bundle()
