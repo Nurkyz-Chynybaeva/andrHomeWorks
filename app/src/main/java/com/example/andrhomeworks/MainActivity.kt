@@ -1,27 +1,26 @@
 package com.example.andrhomeworks
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity(), OnItemClick {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.containerFrag, Fragment1())
-            .commit()
-    }
+        val adapter = Adapter()
+        val recycler = findViewById<RecyclerView>(R.id.recyclerM1)
 
-    override fun onClick(enteredText: String) {
-        val fragment2 = Fragment2()
+        recycler.adapter = adapter
+        recycler.layoutManager = LinearLayoutManager(this)
+        recycler.addItemDecoration(DividerItemDecoration(this, RecyclerView.VERTICAL))
 
-        val bundle = Bundle()
-        bundle.putString("key", enteredText)
-        fragment2.arguments = bundle
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.containerFrag, fragment2)
-            .addToBackStack(null)
-            .commit()
+        val list = mutableListOf<String>()
+        for(i in 0..29) {
+            list.add("item -$i")
+        }
+        adapter.setData(list)
     }
 }
