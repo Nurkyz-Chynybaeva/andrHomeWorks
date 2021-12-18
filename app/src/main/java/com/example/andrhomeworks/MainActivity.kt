@@ -1,24 +1,35 @@
 package com.example.andrhomeworks
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-class MainActivity : AppCompatActivity(), OnClickButton {
+import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.container, Fragment1())
-            .commit()
+
+        val recycler = findViewById<RecyclerView>(R.id.recyclerM1)
+
+        val layoutManager = LinearLayoutManager(this)
+        val adapter = Adapter { pos: Int ->
+            val intent = Intent(Intent(this, MainActivity2::class.java))
+            intent.putExtra("key", "item-$pos")
+            startActivity(intent)
+        }
+        recycler.layoutManager = layoutManager
+        recycler.adapter = adapter
+        recycler.addItemDecoration(DividerItemDecoration(this, RecyclerView.VERTICAL))
+
+        val list = mutableListOf<String>()
+        for (i in 0..29) {
+            list.add("item-$i")
+        }
+        adapter.setData(list)
     }
-    override fun onClick(name: String, password: String) {
-        val fragment2 = Fragment2()
-        val bundle = Bundle()
-        bundle.putString("text", name)
-        bundle.putString("number", password)
-        fragment2.arguments = bundle
-        supportFragmentManager.beginTransaction()
-            .add(R.id.container, fragment2)
-            .addToBackStack(null)
-            .commit()
-    }
+
 }
