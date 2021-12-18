@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity(), OnItemClick {
             .add(R.id.containerFrag, Fragment1())
             .commit()
     }
-
     override fun onClick(enteredText: String) {
         val fragment2 = Fragment2()
 

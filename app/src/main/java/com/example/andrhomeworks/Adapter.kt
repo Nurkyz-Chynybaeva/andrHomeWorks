@@ -38,8 +38,6 @@ class Adapter (val click: (pos: Int) -> Unit) : RecyclerView.Adapter<Adapter.Vie
             itemView.setOnClickListener{
                 click.invoke(adapterPosition)
             }
-
-
         }
     }
 }
