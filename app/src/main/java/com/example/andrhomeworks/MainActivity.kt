@@ -1,5 +1,4 @@
 package com.example.andrhomeworks
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
@@ -8,13 +7,12 @@ class MainActivity : AppCompatActivity(), Back{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, Fragment1())
+            .add(R.id.fragmentContainer, MainFragment())
             .commit()
     }
-
     override fun backFragment() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, Fragment2())
+            .add(R.id.fragmentContainer, AboutFragment())
             .commit()
     }
 }
