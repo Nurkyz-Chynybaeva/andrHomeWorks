@@ -14,7 +14,6 @@ class Fragment1 : Fragment(R.layout.fragment1) {
         super.onAttach(context)
         listener = context as OnItemClick
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recycler = view.findViewById<RecyclerView>(R.id.recycler)
