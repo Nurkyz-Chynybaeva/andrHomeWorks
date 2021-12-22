@@ -11,11 +11,14 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class Fragment1 : Fragment(R.layout.fragment1) {
+    private lateinit var inputLayout: TextInputLayout
     private lateinit var listener: Navigator
-    private lateinit var name: EditText
-    private lateinit var password: EditText
+    private lateinit var name: TextInputEditText
+    private lateinit var password: TextInputEditText
     private lateinit var button: Button
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -32,7 +35,7 @@ class Fragment1 : Fragment(R.layout.fragment1) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         name = view.findViewById(R.id.etName)
-        password = view.findViewById<AppCompatEditText>(R.id.etPassword)
+        password = view.findViewById<TextInputEditText>(R.id.etPassword)
         button = view.findViewById<AppCompatButton>(R.id.btnLogin)
         button.setOnClickListener {
             onClick(
@@ -61,7 +64,7 @@ class Fragment1 : Fragment(R.layout.fragment1) {
         if (userName == "Chyn" && userPassword == "2902") {
             listener.showFragment2(userName, userPassword)
         } else {
-            Toast.makeText(requireContext(), "error!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Error!", Toast.LENGTH_SHORT).show()
         }
     }
 
