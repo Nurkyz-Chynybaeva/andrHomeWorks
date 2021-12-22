@@ -18,8 +18,8 @@ class Fragment2 : Fragment(R.layout.fragment2) {
             val intent = Intent("action")
             startActivity(intent)
         }
-        val text2 = arguments?.getString("key") ?: "default"
-        txt.text = text2
+        val textArg = arguments?.getString("key") ?: "default"
+        txt.text = textArg
     }
 
 }

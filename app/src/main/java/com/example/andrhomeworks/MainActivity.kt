@@ -1,4 +1,5 @@
 package com.example.andrhomeworks
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity(), OnItemClick {
             .add(R.id.containerFrag, Fragment1())
             .commit()
     }
+
     override fun onClick(enteredText: String) {
         val fragment2 = Fragment2()
 
@@ -22,5 +24,11 @@ class MainActivity : AppCompatActivity(), OnItemClick {
             .replace(R.id.containerFrag, fragment2)
             .addToBackStack(null)
             .commit()
+    }
+
+    override fun onClickButton(entered: String) {
+        val bundle = Bundle()
+        bundle.putString("keyB", entered)
+        val intent = Intent()
     }
 }

@@ -26,7 +26,7 @@ class Fragment1 : Fragment(R.layout.fragment1) {
         recycler.adapter = adapter
         recycler.addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
         val list = mutableListOf<String>()
-        for (i in 0..20) {
+        for (i in 0..29) {
             list.add("item - $i")
         }
         adapter.setData(list)
