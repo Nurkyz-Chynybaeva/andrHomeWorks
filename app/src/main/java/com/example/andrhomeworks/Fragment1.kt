@@ -4,22 +4,23 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Patterns
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class Fragment1 : Fragment(R.layout.fragment1) {
-    private lateinit var inputLayout: TextInputLayout
+
     private lateinit var listener: Navigator
     private lateinit var name: TextInputEditText
     private lateinit var password: TextInputEditText
     private lateinit var button: Button
+    private lateinit var nameLayout: TextInputLayout
+    private lateinit var passwordLayout: TextInputLayout
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = context as Navigator
@@ -35,15 +36,18 @@ class Fragment1 : Fragment(R.layout.fragment1) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         name = view.findViewById(R.id.etName)
-        password = view.findViewById<TextInputEditText>(R.id.etPassword)
+        password = view.findViewById(R.id.etPassword)
         button = view.findViewById<AppCompatButton>(R.id.btnLogin)
+        nameLayout = view.findViewById(R.id.nameLayout)
+        passwordLayout = view.findViewById(R.id.passworLayout)
+
         button.setOnClickListener {
             onClick(
                 name.text.toString(),
                 password.text.toString()
             )
         }
-        val with = with(name) { this.addTextChangedListener(loginTextWatcher) }
+        with(name) { this.addTextChangedListener(loginTextWatcher) }
         with(password) {
             this.addTextChangedListener(loginTextWatcher)
         }
@@ -61,10 +65,11 @@ class Fragment1 : Fragment(R.layout.fragment1) {
     }
 
     private fun onClick(userName: String, userPassword: String) {
-        if (userName == "Chyn" && userPassword == "2902") {
-            listener.showFragment2(userName, userPassword)
+        if (userName !== "Chyn" && userPassword !== "2902") {
+            nameLayout.error = "Wrong username or password :)"
+            passwordLayout.error = "Wrong username or password :)"
         } else {
-            Toast.makeText(requireContext(), "Error!", Toast.LENGTH_SHORT).show()
+            listener.showFragment2(userPassword, userName)
         }
     }
 
