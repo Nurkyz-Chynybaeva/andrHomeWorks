@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="#C36666"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt1Nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Header title"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt2Nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Header text"
+        android:textColor="@color/black"
+        android:textSize="19sp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
