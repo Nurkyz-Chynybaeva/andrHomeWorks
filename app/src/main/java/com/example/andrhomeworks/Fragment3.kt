@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 
-class Fragment1: Fragment(R.layout.fragment1) {
+class Fragment3: Fragment(R.layout.fragment3) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
