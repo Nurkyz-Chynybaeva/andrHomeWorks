@@ -65,11 +65,11 @@ class Fragment1 : Fragment(R.layout.fragment1) {
     }
 
     private fun onClick(userName: String, userPassword: String) {
-        if (userName !== "Chyn" && userPassword !== "2902") {
+        if (userName == "Chyn" && userPassword == "2902") {
+            listener.showFragment2(userPassword, userName)
+        } else {
             nameLayout.error = "Wrong username or password :)"
             passwordLayout.error = "Wrong username or password :)"
-        } else {
-            listener.showFragment2(userPassword, userName)
         }
     }
 
