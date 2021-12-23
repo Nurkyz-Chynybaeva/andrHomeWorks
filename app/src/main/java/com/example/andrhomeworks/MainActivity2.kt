@@ -12,4 +12,8 @@ class MainActivity2 : AppCompatActivity(), OnItemClick {
     override fun onClick(enteredText: String) {
 
     }
+
+    override fun onClickButton(entered: String) {
+
+    }
 }
