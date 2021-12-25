@@ -1,51 +1,31 @@
 package com.example.andrhomeworks
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatTextView
 
 class MainActivity : AppCompatActivity() {
-    lateinit var toggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
-        val navView: NavigationView = findViewById(R.id.navView)
+        val txt = findViewById<AppCompatTextView>(R.id.txt)
+        val btn = findViewById<AppCompatButton>(R.id.btn)
+        val edit = findViewById<AppCompatEditText>(R.id.edit)
 
-        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+        btn.setOnClickListener {
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        navView.setNavigationItemSelectedListener{
-            when(it.itemId){
-                R.id.item1 -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, Fragment1()).commit()
-                }
-                R.id.item2 ->{
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, Fragment2()).commit()
-                }
-            }
-            true
+//            val editT = edit.text.toString()
+//            val pattern = "\\w+".toRegex()
+//            val words = pattern.findAll(editT)
+//            txt.text = words.count().toString()
         }
-
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)){
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
 }
+
 
 
 
