@@ -1,56 +1,58 @@
 package com.example.andrhomeworks
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
+import android.view.View
+import androidx.appcompat.widget.AppCompatButton
 
-class MainActivity : AppCompatActivity() {
-    lateinit var toggle: ActionBarDrawerToggle
+class MainActivity : AppCompatActivity(), OpenFragments {
+    private lateinit var prefs: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
-        val navView: NavigationView = findViewById(R.id.navView)
+        getPreferences(MODE_PRIVATE)
+        prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE)
 
-        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+        if (prefs.getString("login", "def").isNullOrEmpty()) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.container, RegistrationFragment())
+                .commit()
+        } else {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.container, AuthorisationFragment())
+                .commit()
+        }
+    }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        navView.setNavigationItemSelectedListener{
-            when(it.itemId){
-                R.id.item1 -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, Fragment1()).commit()
-                }
-                R.id.item2 ->{
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, Fragment2()).commit()
-                }
+    override fun changePrefs(login: String, password: String) {
+        val editor = prefs.edit()
+        editor.putString("login", login).apply()
+        editor.putString("password", password).apply()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, AuthorisationFragment())
+            .commit()
+    }
+
+    override fun checkPrefs(login: String, password: String) {
+        val corLog = prefs.getString("login", "def")
+        val corPas = prefs.getString("password", "def")
+        if (corLog == login && corPas == password) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, MainScreen())
+                .addToBackStack(null)
+                .commit()
+        } else {
+            val changeBtn = findViewById<AppCompatButton>(R.id.change_btn)
+            changeBtn.visibility = View.VISIBLE
+            changeBtn.setOnClickListener {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, RegistrationFragment())
+                    .commit()
             }
-            true
         }
-
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)){
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
 }
-
-
-
-
-
-
-
-
