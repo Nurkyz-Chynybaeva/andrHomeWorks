@@ -3,10 +3,9 @@ package com.example.andrhomeworks
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.widget.AppCompatButton
+import android.widget.Toast
 
-class MainActivity : AppCompatActivity(), OpenFragments {
+class MainActivity : AppCompatActivity(), CheckPref {
     private lateinit var prefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,13 +15,14 @@ class MainActivity : AppCompatActivity(), OpenFragments {
         getPreferences(MODE_PRIVATE)
         prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE)
 
-        if (prefs.getString("login", "def").isNullOrEmpty()) {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.container, RegistrationFragment())
-                .commit()
-        } else {
+        if (prefs.getString("login", "default").isNullOrEmpty()) {
             supportFragmentManager.beginTransaction()
                 .add(R.id.container, AuthorisationFragment())
+                .commit()
+
+        } else {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.container, RegistrationFragment())
                 .commit()
         }
     }
@@ -38,21 +38,15 @@ class MainActivity : AppCompatActivity(), OpenFragments {
     }
 
     override fun checkPrefs(login: String, password: String) {
-        val corLog = prefs.getString("login", "def")
-        val corPas = prefs.getString("password", "def")
-        if (corLog == login && corPas == password) {
+        val loginCheck = prefs.getString("login", "default")
+        val passwordCheck = prefs.getString("password", "default")
+        if (loginCheck == login && passwordCheck == password) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainScreen())
+                .replace(R.id.container, MainFragment())
                 .addToBackStack(null)
                 .commit()
         } else {
-            val changeBtn = findViewById<AppCompatButton>(R.id.change_btn)
-            changeBtn.visibility = View.VISIBLE
-            changeBtn.setOnClickListener {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, RegistrationFragment())
-                    .commit()
+           Toast.makeText(this, "register please", Toast.LENGTH_SHORT).show()
             }
         }
     }
-}

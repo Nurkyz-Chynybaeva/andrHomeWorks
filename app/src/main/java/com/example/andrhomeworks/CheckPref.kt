@@ -1,6 +1,6 @@
 package com.example.andrhomeworks
 
-interface OpenFragments {
+interface CheckPref {
     fun checkPrefs(login: String, password: String)
     fun changePrefs(login: String, password: String)
 }

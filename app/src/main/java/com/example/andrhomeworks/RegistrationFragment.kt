@@ -9,22 +9,22 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
 
 class RegistrationFragment : Fragment(R.layout.registration) {
-    private lateinit var listener: OpenFragments
+    private lateinit var listener: CheckPref
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        listener = context as OpenFragments
+        listener = context as CheckPref
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val newLogin = view.findViewById<AppCompatEditText>(R.id.new_login)
-        val newPassword = view.findViewById<AppCompatEditText>(R.id.new_password)
-        val newButton = view.findViewById<AppCompatButton>(R.id.new_btn)
+        val login = view.findViewById<AppCompatEditText>(R.id.edit1Reg)
+        val password = view.findViewById<AppCompatEditText>(R.id.edit2Reg)
+        val btn = view.findViewById<AppCompatButton>(R.id.btnReg)
 
-        newButton.setOnClickListener {
-                listener.changePrefs(newLogin.text.toString(), newPassword.text.toString())
+        btn.setOnClickListener {
+                listener.changePrefs(login.text.toString(), password.text.toString())
             }
         }
     }
