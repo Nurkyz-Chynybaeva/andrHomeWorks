@@ -44,10 +44,10 @@
         android:id="@+id/btn1Aut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="go"
+        android:text="open main screen"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@id/btn2Aut"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit2Aut"
         android:layout_marginTop="30dp"/>
 
@@ -55,10 +55,10 @@
         android:id="@+id/btn2Aut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="back"
+        android:text="open registration screen"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn1Aut"
-        app:layout_constraintTop_toBottomOf="@id/edit2Aut"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn1Aut"
         android:layout_marginTop="30dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 
 class MainActivity : AppCompatActivity(), CheckPref {
     private lateinit var prefs: SharedPreferences
@@ -17,12 +18,12 @@ class MainActivity : AppCompatActivity(), CheckPref {
 
         if (prefs.getString("login", "default").isNullOrEmpty()) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.container, AuthorisationFragment())
+                .add(R.id.container, RegistrationFragment())
                 .commit()
 
         } else {
             supportFragmentManager.beginTransaction()
-                .add(R.id.container, RegistrationFragment())
+                .add(R.id.container, AuthorisationFragment())
                 .commit()
         }
     }
@@ -46,7 +47,17 @@ class MainActivity : AppCompatActivity(), CheckPref {
                 .addToBackStack(null)
                 .commit()
         } else {
-           Toast.makeText(this, "register please", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "register please", Toast.LENGTH_SHORT).show()
+            val btn2 = findViewById<AppCompatButton>(R.id.btn2Aut)
+            btn2.setOnClickListener {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, RegistrationFragment()).commit()
             }
         }
     }
+}
+
+
+
+
+
