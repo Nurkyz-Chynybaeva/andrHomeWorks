@@ -1,62 +1,71 @@
 package com.example.andrhomeworks
 
-import android.content.SharedPreferences
+import android.app.AlertDialog
+import android.app.DatePickerDialog
+import android.app.DatePickerDialog.OnDateSetListener
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
+import android.view.View
+import android.widget.Button
+import java.util.*
 
-class MainActivity : AppCompatActivity(), CheckPref {
-    private lateinit var prefs: SharedPreferences
-
+class MainActivity : AppCompatActivity() {
+    private var datePickerDialog: DatePickerDialog? = null
+    private var dateButton: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initDatePicker()
+        dateButton = findViewById(R.id.datePickerButton)
+        with(dateButton) { this?.setText(todaysDate) }
+    }
 
-        getPreferences(MODE_PRIVATE)
-        prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE)
-
-        if (prefs.getString(LOGKEY, PASKEY).isNullOrEmpty()) {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.container, RegistrationFragment())
-                .commit()
-        } else {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.container, AuthorisationFragment())
-                .commit()
+    private val todaysDate: String
+        get() {
+            val cal = Calendar.getInstance()
+            val year = cal[Calendar.YEAR]
+            var month = cal[Calendar.MONTH]
+            month += 1
+            val day = cal[Calendar.DAY_OF_MONTH]
+            return makeDateString(day, month, year)
         }
-    }
 
-    override fun changePrefs(login: String, password: String) {
-        val editor = prefs.edit()
-        editor.putString("login", login).apply()
-        editor.putString("password", password).apply()
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, AuthorisationFragment())
-            .commit()
-    }
-
-    override fun checkPrefs(login: String, password: String) {
-        val loginCheck = prefs.getString("login", "default")
-        val passwordCheck = prefs.getString("password", "default")
-        if (loginCheck == login && passwordCheck == password) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment())
-                .addToBackStack(null)
-                .commit()
-        } else {
-            Toast.makeText(this, "register please", Toast.LENGTH_SHORT).show()
-            val btn2 = findViewById<AppCompatButton>(R.id.btn2Aut)
-            btn2.setOnClickListener {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, RegistrationFragment()).commit()
+    private fun initDatePicker() {
+        val dateSetListener =
+            OnDateSetListener { _, year, month, day ->
+                var month = month
+                month += 1
+                val date = makeDateString(day, month, year)
+                dateButton!!.text = date
             }
-        }
+        val cal = Calendar.getInstance()
+        val year = cal[Calendar.YEAR]
+        val month = cal[Calendar.MONTH]
+        val day = cal[Calendar.DAY_OF_MONTH]
+        val style = AlertDialog.THEME_HOLO_LIGHT
+        datePickerDialog = DatePickerDialog(this, style, dateSetListener, year, month, day)
     }
-    companion object{
-        const val LOGKEY = "loginkey"
-        const val PASKEY = "passwordkey"
+
+    private fun makeDateString(day: Int, month: Int, year: Int): String {
+        return getMonthFormat(month)
+    }
+
+    private fun getMonthFormat(month: Int): String {
+        if (month == 1) return "winter"
+        if (month == 2) return "winter"
+        if (month == 3) return "spring"
+        if (month == 4) return "spring"
+        if (month == 5) return "spring"
+        if (month == 6) return "summer"
+        if (month == 7) return "summer"
+        if (month == 8) return "summer"
+        if (month == 9) return "autumn"
+        if (month == 10) return "autumn"
+        if (month == 11) return "autumn"
+        return if (month == 12) "winter" else "winter"
+    }
+
+    fun openDatePicker(view: View?) {
+        datePickerDialog!!.show()
     }
 }
-
