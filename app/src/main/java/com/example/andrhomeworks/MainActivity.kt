@@ -13,38 +13,36 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val txt = findViewById<AppCompatTextView>(R.id.txt)
+        val edit = findViewById<AppCompatEditText>(R.id.edit)
         val btn = findViewById<AppCompatButton>(R.id.btn)
-        btn.setOnClickListener {
-            val txt = findViewById<AppCompatTextView>(R.id.txt)
-            val edit = findViewById<AppCompatEditText>(R.id.edit)
-            val eTxt = edit.text.toString()
 
-            val `in` = Scanner(System.`in`)
-            val w = `in`.nextLine() + " "
-            var z = ""
-            val v = "aA"
-            var ww = ""
-            var cc = 0
-            var cl = 0
-            for (element in w) {
-                val c = element
-                if (c.code != 32) z += c else {
-                    for (element in w) {
-                        if (v.indexOf(element) != -1) cc++
+        btn.setOnClickListener {
+                val `in` = Scanner(System.`in`)
+                val w = `in`.nextLine() + " "
+                var z = ""
+                val v = "aА"
+                var ww = ""
+                var cc = 0
+                var cl = 0
+                for (element in w) {
+                    val c = element
+                    if (c.code != 20) z += c else {
+                        for (element in w) {
+                            val d = element
+                            if (v.indexOf(d) != -1) cc++
+                        }
+                        if (cc > cl) {
+                            ww = z
+                            cl = cc
+                        }
+                        z = ""
+                        cc = 0
                     }
-                    if (cc > cl) {
-                        ww = z
-                        cl = cc
-                    }
-                    z = ""
-                    cc = 0
                 }
+                val eTxt = edit.text.toString()
+                val count = eTxt == ww
+                txt.text = count.toString()
             }
         }
-
     }
-}
-
-
-
-

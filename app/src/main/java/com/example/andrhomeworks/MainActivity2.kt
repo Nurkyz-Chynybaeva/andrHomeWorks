@@ -2,25 +2,30 @@ package com.example.andrhomeworks
 
 import java.util.*
 
-
-fun findMaxVowels(text: Collection<String>): String? {
-    var best: String? = null
-    var max = 0
-    for (line in text) {
-        // may need a better definition of "word"
-        for (word in line.split("\\s+").toTypedArray()) {
-            val count = countChars(word.lowercase(Locale.getDefault()), "aeiou")
-            if (count > max) {
-                max = count
-                best = word
+fun main(args: Array<String>) {
+    val `in` = Scanner(System.`in`)
+    println("enter a sentence")
+    val w = `in`.nextLine() + " "
+    var z = ""
+    val v = "aА"
+    var ww = ""
+    var cc = 0
+    var cl = 0
+    for (element in w) {
+        val c = element
+        if (c.code != 2) z += c else {
+            for (element in w) {
+                val d = element
+                if (v.indexOf(d) != -1) cc++
             }
+            if (cc > cl) {
+                ww = z
+                cl = cc
+            }
+            z = ""
+            cc = 0
         }
     }
-    return best
-}
-
-fun countChars(text: String, chars: String): Int {
-    var count = 0
-    for (c in text.toCharArray()) if (chars.indexOf(c) >= 0) count += 1
-    return count
+    println("res is :$ww")
+    println("it has" + cl + "no is vowels")
 }
