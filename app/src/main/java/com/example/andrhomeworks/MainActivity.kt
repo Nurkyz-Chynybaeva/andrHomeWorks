@@ -16,11 +16,10 @@ class MainActivity : AppCompatActivity(), CheckPref {
         getPreferences(MODE_PRIVATE)
         prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE)
 
-        if (prefs.getString("login", "default").isNullOrEmpty()) {
+        if (prefs.getString(LOGKEY, PASKEY).isNullOrEmpty()) {
             supportFragmentManager.beginTransaction()
                 .add(R.id.container, RegistrationFragment())
                 .commit()
-
         } else {
             supportFragmentManager.beginTransaction()
                 .add(R.id.container, AuthorisationFragment())
@@ -55,9 +54,9 @@ class MainActivity : AppCompatActivity(), CheckPref {
             }
         }
     }
+    companion object{
+        const val LOGKEY = "loginkey"
+        const val PASKEY = "passwordkey"
+    }
 }
-
-
-
-
 
