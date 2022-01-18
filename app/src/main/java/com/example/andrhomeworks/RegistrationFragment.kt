@@ -11,7 +11,7 @@ class RegistrationFragment : Fragment(R.layout.registration_fragment) {
 
     private var _binding: RegistrationFragmentBinding? = null
     private val binding get() = _binding!!
-    private val dbInstance get() = Injector?.database
+    private val dbInstance get() = Injector.database
     private lateinit var listener: OnClickButton
 
     override fun onAttach(context: Context) {
@@ -29,7 +29,7 @@ class RegistrationFragment : Fragment(R.layout.registration_fragment) {
                     company = editC.text.toString(),
                     salary = editS.text.toString()
                 )
-                dbInstance?.employeeDao()?.insert(e)
+                dbInstance.employeeDao().insert(e)
                 listener.onClick()
 
             }
