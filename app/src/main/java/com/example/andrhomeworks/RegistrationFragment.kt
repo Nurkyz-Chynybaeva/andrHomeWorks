@@ -41,17 +41,3 @@ class RegistrationFragment : Fragment(R.layout.registration_fragment) {
         _binding = null
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

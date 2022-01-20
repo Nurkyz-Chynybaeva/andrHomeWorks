@@ -11,7 +11,7 @@ class App: Application() {
     override fun onCreate() {
         super.onCreate()
         mInstance = this
-        database = Room.databaseBuilder(this, AppDatabase::class.java, "database")
+        database = Room.databaseBuilder(this, AppDatabase::class.java, "data")
             .fallbackToDestructiveMigration()
             .allowMainThreadQueries()
             .build()

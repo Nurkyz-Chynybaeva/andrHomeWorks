@@ -23,11 +23,3 @@ class MainActivity : AppCompatActivity(), OnClickButton {
             .commit()
     }
 }
-
-
-
-
-
-
-
-
