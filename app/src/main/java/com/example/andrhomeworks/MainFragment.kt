@@ -23,7 +23,7 @@ class MainFragment: Fragment(R.layout.main_fragment) {
         _binding = MainFragmentBinding.bind(view)
 
         binding.apply {
-            val e = dbInstance.employeeDao().getById(2L)
+            val e = dbInstance.employeeDao().getById(1L)
             txtN.text = e.name
             txtC.text = e.company
             txtS.text = e.salary
