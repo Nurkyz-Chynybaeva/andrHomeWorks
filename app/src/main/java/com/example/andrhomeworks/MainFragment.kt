@@ -6,7 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.andrhomeworks.databinding.MainFragmentBinding
 
-class MainFragment: Fragment(R.layout.activity_add_new_user) {
+class MainFragment: Fragment(R.layout.main_fragment) {
 
     private var _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
@@ -24,9 +24,7 @@ class MainFragment: Fragment(R.layout.activity_add_new_user) {
 
         binding.apply {
             val e = dbInstance.employeeDao().getById(1L)
-            txtN.text = e.name
-            txtC.text = e.company
-            txtS.text = e.salary
+
         }
     }
         override fun onDestroyView() {
@@ -34,16 +32,3 @@ class MainFragment: Fragment(R.layout.activity_add_new_user) {
             _binding = null
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
