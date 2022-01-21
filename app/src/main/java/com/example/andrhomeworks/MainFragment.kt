@@ -6,7 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.andrhomeworks.databinding.MainFragmentBinding
 
-class MainFragment: Fragment(R.layout.main_fragment) {
+class MainFragment: Fragment(R.layout.activity_add_new_user) {
 
     private var _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
