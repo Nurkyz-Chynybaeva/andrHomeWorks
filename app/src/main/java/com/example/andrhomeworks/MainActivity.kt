@@ -13,15 +13,32 @@ class MainActivity : AppCompatActivity(), OnClickButton {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.container, RegistrationFragment())
+            .add(R.id.container, MainFragment())
             .commit()
     }
 
     override fun onClick() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, MainFragment())
+            .add(R.id.container, MainFragment())
             .commit()
     }
+
+    override fun addEmployee() {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container, AddEmplFragment())
+            .commit()
+    }
+
+    override fun initDataFragment(id: Long) {
+        val fragment = DataFragment()
+        val bundle = Bundle()
+        bundle.putLong("KEY_ID", id)
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container, fragment)
+            .commit()
+    }
+
 }
 
 
