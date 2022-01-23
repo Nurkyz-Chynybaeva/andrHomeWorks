@@ -46,8 +46,8 @@ class Adapter(private val click: (item: Employee) -> Unit)
             txtS.text = item.salary
 
             itemView.setOnClickListener {
-
                 click.invoke(item)
+
             }
         }
     }

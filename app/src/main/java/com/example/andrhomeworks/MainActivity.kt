@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), OnClickButton {
             .commit()
     }
 
-    override fun initDataFragment(id: Long) {
+    override fun initDataFragment(id:Long) {
         val fragment = DataFragment()
         val bundle = Bundle()
         bundle.putLong("KEY_ID", id)

@@ -11,23 +11,23 @@ class DataFragment : Fragment(R.layout.data_fragments) {
     private var _binding: DataFragmentsBinding? = null
     private val binding get() = _binding!!
     private val dbInstance get() = Injector.database
-    private lateinit var listener: OnClickButton
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        listener = context as OnClickButton
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = DataFragmentsBinding.bind(view)
 
-        val id = arguments?.getLong("KEY_ID") ?: -1L
-        val e = dbInstance.employeeDao().getById(id)
-        e.company
-        e.name
-    }
+        binding.apply {
+            val id = arguments?.getLong("KEY_ID") ?: -1L
+            val e = dbInstance.employeeDao().getById(id)
 
+            dName.text = e.name
+            dCompany.text = e.company
+            dSalary.text = e.salary
+
+        }
+
+    }
 }
 
 

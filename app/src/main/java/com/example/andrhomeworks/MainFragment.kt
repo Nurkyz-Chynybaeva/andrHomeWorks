@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.andrhomeworks.database.Employee
 import com.example.andrhomeworks.databinding.MainFragmentBinding
 
 class MainFragment : Fragment(R.layout.main_fragment) {
@@ -32,7 +31,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             }
             recycler.adapter = adapter
             recycler.layoutManager = LinearLayoutManager(requireContext())
-            recycler.addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
+            recycler.addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
 
             val list = dbInstace.employeeDao().getAll()
             adapter.setData(list)

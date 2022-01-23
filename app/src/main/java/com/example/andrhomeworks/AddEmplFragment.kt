@@ -30,6 +30,7 @@ class AddEmplFragment: Fragment(R.layout.addempl_fragment) {
                     salary = editSalary.text.toString()
                 )
                 dbInstance.employeeDao().insert(e)
+                listener.onClick()
             }
         }
     }
