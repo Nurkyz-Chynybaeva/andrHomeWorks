@@ -7,8 +7,8 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.andrhomeworks.database.Employee
 
-class Adapter(private val click: (item: Employee) -> Unit)
-    : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(private val click: (item: Employee) -> Unit) :
+    RecyclerView.Adapter<Adapter.ViewHolder>() {
     private var list = listOf<Employee>()
 
     fun setData(list: List<Employee>) {

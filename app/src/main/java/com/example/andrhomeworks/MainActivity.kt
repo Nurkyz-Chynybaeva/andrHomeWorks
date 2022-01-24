@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), OnClickButton {
             .commit()
     }
 
-    override fun initDataFragment(id:Long) {
+    override fun initDataFragment(id: Long) {
         val fragment = DataFragment()
         val bundle = Bundle()
         bundle.putLong("KEY_ID", id)
@@ -39,12 +39,13 @@ class MainActivity : AppCompatActivity(), OnClickButton {
             .commit()
     }
 
+    override fun editUser(id: Long) {
+        val fragment = EditUserFragment()
+        val bundle = Bundle()
+        bundle.putLong("KEY", id)
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container, fragment)
+            .commit()
+    }
 }
-
-
-
-
-
-
-
-
