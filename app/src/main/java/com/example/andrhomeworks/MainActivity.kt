@@ -22,4 +22,14 @@ class MainActivity : AppCompatActivity(), OnClickButton {
             .replace(R.id.container, MainFragment())
             .commit()
     }
+
+    override fun initEditFragment(id: Long) {
+        val fragment = EditFragment()
+        val bundle = Bundle()
+        bundle.putLong("KEY_ID", id)
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container, fragment)
+            .commit()
+    }
 }
