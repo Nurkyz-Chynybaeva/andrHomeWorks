@@ -31,7 +31,7 @@ class DataFragment : Fragment(R.layout.data_fragments) {
             dCompany.text = e.company
             dSalary.text = e.salary
 
-            editBtn.setOnClickListener{ it: View ->
+            editBtn.setOnClickListener{
                 listener.editUser(e.id!!)
             }
 
