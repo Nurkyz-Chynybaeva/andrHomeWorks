@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,6 +13,10 @@
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -22,6 +26,9 @@
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtN"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -31,6 +38,10 @@
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtC"
+        app:layout_constraintBottom_toTopOf="@id/editBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/editBtn"
@@ -40,7 +51,12 @@
         android:focusable="true"
         android:tint="@android:color/white"
         app:srcCompat="@drawable/ic_edit"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/txtS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        android:layout_marginRight="10dp"
+        />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/deleteBtn"
         android:layout_width="wrap_content"
@@ -48,8 +64,9 @@
         android:clickable="true"
         android:focusable="true"
         android:tint="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/editBtn"
-        app:layout_constraintStart_toStartOf="@id/editBtn"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/ic_delete" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+        app:srcCompat="@drawable/ic_delete"
+        app:layout_constraintStart_toEndOf="@id/editBtn"
+        app:layout_constraintTop_toTopOf="@id/editBtn"
+        android:layout_marginLeft="13dp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
