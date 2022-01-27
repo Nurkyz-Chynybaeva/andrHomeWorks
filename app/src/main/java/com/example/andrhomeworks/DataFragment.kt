@@ -9,7 +9,7 @@ import com.example.andrhomeworks.databinding.DataFragmentsBinding
 
 class DataFragment : Fragment(R.layout.data_fragments) {
 
-    private lateinit var listener:OnClickButton
+    private lateinit var listener: OnClickButton
     private var _binding: DataFragmentsBinding? = null
     private val binding get() = _binding!!
     private val dbInstance get() = Injector.database
@@ -31,14 +31,12 @@ class DataFragment : Fragment(R.layout.data_fragments) {
             dCompany.text = e.company
             dSalary.text = e.salary
 
-            editBtn.setOnClickListener{
+            editBtn.setOnClickListener {
                 listener.editUser(e.id!!)
             }
 
             deleteBtn.setOnClickListener {
-                dbInstance.employeeDao().delete(e)
-                Toast.makeText(requireContext(), "user deleted", Toast.LENGTH_SHORT).show()
-                listener.onClick()
+                listener.deleteUser(e.id!!)
             }
         }
     }

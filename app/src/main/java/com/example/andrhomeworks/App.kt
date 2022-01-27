@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.example.andrhomeworks.database.AppDatabase
 
-class App: Application() {
+class App : Application() {
 
     lateinit var database: AppDatabase
 

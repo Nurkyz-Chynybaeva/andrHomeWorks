@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import com.example.andrhomeworks.database.Employee
 import com.example.andrhomeworks.databinding.AddemplFragmentBinding
 
-class AddEmplFragment: Fragment(R.layout.addempl_fragment) {
+class AddEmplFragment : Fragment(R.layout.addempl_fragment) {
     private lateinit var listener: OnClickButton
     private val dbInstance get() = Injector.database
     private var _binding: AddemplFragmentBinding? = null

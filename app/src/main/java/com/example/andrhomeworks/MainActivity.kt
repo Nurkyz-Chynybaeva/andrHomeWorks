@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), OnClickButton {
 
     override fun onClick() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.container, MainFragment())
+            .replace(R.id.container, MainFragment())
             .commit()
     }
 
@@ -43,6 +43,16 @@ class MainActivity : AppCompatActivity(), OnClickButton {
         val fragment = EditUserFragment()
         val bundle = Bundle()
         bundle.putLong("KEY", id)
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container, fragment)
+            .commit()
+    }
+
+    override fun deleteUser(id: Long) {
+        val fragment = DeleteUserFragment()
+        val bundle = Bundle()
+        bundle.putLong("KEY_D", id)
         fragment.arguments = bundle
         supportFragmentManager.beginTransaction()
             .add(R.id.container, fragment)
