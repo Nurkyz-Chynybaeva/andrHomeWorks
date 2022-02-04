@@ -1,21 +1,25 @@
 package com.example.andrhomeworks.database
 
+import android.view.View
 import androidx.room.*
+import io.reactivex.Completable
+import io.reactivex.Observable
+import io.reactivex.Single
 
 @Dao
 interface EmployeeDao {
     @Query("SELECT * FROM employee")
-    fun getAll(): List<Employee>
+    fun getAll(): Observable<List<Employee>>
 
     @Query("SELECT * FROM employee WHERE id = :id")
-    fun getById(id: Long): Employee
+    fun getById(id: Long): Single<Employee>
 
     @Insert
-    fun insert(employee: Employee)
+    fun insert(employee: Employee) : Completable
 
     @Update
-    fun update(employee: Employee)
+    fun update(employee: Single<Employee>) : Completable
 
     @Delete
-    fun delete(employee: Employee)
+    fun delete(employee: Employee) : Completable
 }

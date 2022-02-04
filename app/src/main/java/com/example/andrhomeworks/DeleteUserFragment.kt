@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.andrhomeworks.databinding.DeleteuserFragmentBinding
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class DeleteUserFragment : Fragment(R.layout.deleteuser_fragment) {
     private lateinit var listener: OnClickButton
@@ -23,12 +25,22 @@ class DeleteUserFragment : Fragment(R.layout.deleteuser_fragment) {
         _binding = DeleteuserFragmentBinding.bind(view)
 
         val id = arguments?.getLong("KEY_D") ?: -1L
-        val e = dbInstance.employeeDao().getById(id)
+        dbInstance.employeeDao().getById(id)
 
         binding.btn1D.setOnClickListener {
-            dbInstance.employeeDao().delete(e)
-            Toast.makeText(requireContext(), "user deleted", Toast.LENGTH_SHORT).show()
-            listener.onClick()
+            dbInstance.employeeDao().delete(it)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnComplete {
+                    Toast.makeText(requireContext(), "user deleted", Toast.LENGTH_SHORT).show()
+                    listener.onClick()
+                }
+                .doOnError {
+                    Toast.makeText(requireContext(), "user is not deleted", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                .subscribe()
+
         }
         binding.btn2D.setOnClickListener {
             listener.onClick()

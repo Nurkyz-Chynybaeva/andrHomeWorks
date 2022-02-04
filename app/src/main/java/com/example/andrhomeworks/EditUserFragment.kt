@@ -2,11 +2,12 @@ package com.example.andrhomeworks
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.andrhomeworks.databinding.EdituserFragmentBinding
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class EditUserFragment : Fragment(R.layout.edituser_fragment) {
     private lateinit var listener: OnClickButton
@@ -24,18 +25,24 @@ class EditUserFragment : Fragment(R.layout.edituser_fragment) {
         _binding = EdituserFragmentBinding.bind(view)
 
         binding.apply {
-            val id = arguments?.getLong("KEY") ?: -1L
-            val e = dbInstance.employeeDao().getById(id)
+//            val id = arguments?.getLong("KEY") ?: -1L
+//            val e = dbInstance.employeeDao().getById(id)
+//                .subscribeOn(Schedulers.io())
 
-            btnSave.setOnClickListener {
-                e.name = editName.text.toString()
-                e.company = editCompany.text.toString()
-                e.salary = editSalary.text.toString()
+//                    btnSave.setOnClickListener {
+//                        e.name = editName.text.toString()
+//                        e.company = editCompany.text.toString()
+//                        e.salary = editSalary.text.toString()
+//
+//                        Toast.makeText(requireContext(), "user edited", Toast.LENGTH_SHORT).show()
+//                        dbInstance.employeeDao().update(e)
+//                        listener.onClick()
+//
+//                }
 
-                Toast.makeText(requireContext(), "user edited", Toast.LENGTH_SHORT).show()
-                dbInstance.employeeDao().update(e)
-                listener.onClick()
-            }
+//                .observeOn(AndroidSchedulers.mainThread())
+//
+//                .subscribe()
         }
     }
 }

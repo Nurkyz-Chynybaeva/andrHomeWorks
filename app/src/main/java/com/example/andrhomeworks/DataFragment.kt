@@ -3,9 +3,10 @@ package com.example.andrhomeworks
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.andrhomeworks.databinding.DataFragmentsBinding
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class DataFragment : Fragment(R.layout.data_fragments) {
 
@@ -25,18 +26,24 @@ class DataFragment : Fragment(R.layout.data_fragments) {
 
         binding.apply {
             val id = arguments?.getLong("KEY_ID") ?: -1L
-            val e = dbInstance.employeeDao().getById(id)
-
-            dName.text = e.name
-            dCompany.text = e.company
-            dSalary.text = e.salary
-
-            editBtn.setOnClickListener {
-                listener.editUser(e.id!!)
-            }
+            dbInstance.employeeDao().getById(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSuccess {
+                    dName.text = it.name
+                    dCompany.text = it.company
+                    dSalary.text = it.salary
+                }
+                .doOnError {
+                    // -error
+                }
+                .subscribe()
 
             deleteBtn.setOnClickListener {
-                listener.deleteUser(e.id!!)
+                listener.deleteUser(it.id)
+            }
+            editBtn.setOnClickListener {
+                listener.editUser(it.id)
             }
         }
     }

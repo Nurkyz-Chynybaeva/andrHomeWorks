@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), OnClickButton {
             .commit()
     }
 
-    override fun editUser(id: Long) {
+    override fun editUser(id: Int) {
         val fragment = EditUserFragment()
         val bundle = Bundle()
         bundle.putLong("KEY", id)
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity(), OnClickButton {
             .commit()
     }
 
-    override fun deleteUser(id: Long) {
+    override fun deleteUser(id: Int) {
         val fragment = DeleteUserFragment()
         val bundle = Bundle()
         bundle.putLong("KEY_D", id)

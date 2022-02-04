@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.andrhomeworks.database.Employee
+import io.reactivex.Observable
 
 class Adapter(private val click: (item: Employee) -> Unit) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {

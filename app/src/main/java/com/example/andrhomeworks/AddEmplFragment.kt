@@ -3,9 +3,12 @@ package com.example.andrhomeworks
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.andrhomeworks.database.Employee
 import com.example.andrhomeworks.databinding.AddemplFragmentBinding
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class AddEmplFragment : Fragment(R.layout.addempl_fragment) {
     private lateinit var listener: OnClickButton
@@ -30,6 +33,15 @@ class AddEmplFragment : Fragment(R.layout.addempl_fragment) {
                     salary = editSalary.text.toString()
                 )
                 dbInstance.employeeDao().insert(e)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnComplete {
+                        Toast.makeText(requireContext(), "do on complete", Toast.LENGTH_SHORT).show()
+                    }
+                    .doOnError {
+                        Toast.makeText(requireContext(), "do on error", Toast.LENGTH_SHORT).show()
+                    }
+                    .subscribe()
                 listener.onClick()
             }
         }
