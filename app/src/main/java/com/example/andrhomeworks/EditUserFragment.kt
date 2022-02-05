@@ -25,24 +25,26 @@ class EditUserFragment : Fragment(R.layout.edituser_fragment) {
         _binding = EdituserFragmentBinding.bind(view)
 
         binding.apply {
-//            val id = arguments?.getLong("KEY") ?: -1L
-//            val e = dbInstance.employeeDao().getById(id)
-//                .subscribeOn(Schedulers.io())
+            val id = arguments?.getLong("KEY") ?: -1L
+            dbInstance.employeeDao().getById(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe()
 
-//                    btnSave.setOnClickListener {
-//                        e.name = editName.text.toString()
-//                        e.company = editCompany.text.toString()
-//                        e.salary = editSalary.text.toString()
-//
-//                        Toast.makeText(requireContext(), "user edited", Toast.LENGTH_SHORT).show()
-//                        dbInstance.employeeDao().update(e)
-//                        listener.onClick()
-//
-//                }
+            btnSave.setOnClickListener {
+                name = editName.text.toString()
+                company = editCompany.text.toString()
+                salary = editSalary.text.toString()
 
-//                .observeOn(AndroidSchedulers.mainThread())
-//
-//                .subscribe()
+                Toast.makeText(requireContext(), "user edited", Toast.LENGTH_SHORT).show()
+                dbInstance.employeeDao().update(e)
+                listener.onClick()
+
+            }
+                .subscribe()
         }
+    }
+    private fun updateUser(id:Long){
+
     }
 }

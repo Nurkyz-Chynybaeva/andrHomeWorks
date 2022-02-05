@@ -1,6 +1,5 @@
 package com.example.andrhomeworks.database
 
-import android.view.View
 import androidx.room.*
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -18,7 +17,7 @@ interface EmployeeDao {
     fun insert(employee: Employee) : Completable
 
     @Update
-    fun update(employee: Single<Employee>) : Completable
+    fun update(employee: Employee) : Completable
 
     @Delete
     fun delete(employee: Employee) : Completable

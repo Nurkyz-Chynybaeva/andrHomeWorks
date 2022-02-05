@@ -3,6 +3,7 @@ package com.example.andrhomeworks
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.andrhomeworks.databinding.DataFragmentsBinding
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -35,15 +36,15 @@ class DataFragment : Fragment(R.layout.data_fragments) {
                     dSalary.text = it.salary
                 }
                 .doOnError {
-                    // -error
+                    Toast.makeText(requireContext(), "error data frag", Toast.LENGTH_SHORT).show()
                 }
                 .subscribe()
 
             deleteBtn.setOnClickListener {
-                listener.deleteUser(it.id)
+                listener.deleteUser(id)
             }
             editBtn.setOnClickListener {
-                listener.editUser(it.id)
+                listener.editUser(id)
             }
         }
     }

@@ -26,24 +26,32 @@ class DeleteUserFragment : Fragment(R.layout.deleteuser_fragment) {
 
         val id = arguments?.getLong("KEY_D") ?: -1L
         dbInstance.employeeDao().getById(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe()
+
 
         binding.btn1D.setOnClickListener {
-            dbInstance.employeeDao().delete(it)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnComplete {
-                    Toast.makeText(requireContext(), "user deleted", Toast.LENGTH_SHORT).show()
-                    listener.onClick()
-                }
-                .doOnError {
-                    Toast.makeText(requireContext(), "user is not deleted", Toast.LENGTH_SHORT)
-                        .show()
-                }
-                .subscribe()
-
+            deleteUser(id)
         }
         binding.btn2D.setOnClickListener {
             listener.onClick()
+        }
+    }
+
+    private fun deleteUser(id: Long) {
+        binding.apply {
+            dbInstance.employeeDao().getById(id)
+                .subscribeOn(Schedulers.io())
+                .flatMapCompletable {
+                    dbInstance.employeeDao().delete(it)
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnComplete {
+                    Toast.makeText(context, "user deleted", Toast.LENGTH_SHORT).show()
+                    listener.onClick()
+                }
+                .subscribe()
         }
     }
 }

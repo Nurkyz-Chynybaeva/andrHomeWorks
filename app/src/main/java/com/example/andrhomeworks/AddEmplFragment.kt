@@ -36,13 +36,10 @@ class AddEmplFragment : Fragment(R.layout.addempl_fragment) {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnComplete {
-                        Toast.makeText(requireContext(), "do on complete", Toast.LENGTH_SHORT).show()
-                    }
-                    .doOnError {
-                        Toast.makeText(requireContext(), "do on error", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "user added", Toast.LENGTH_SHORT).show()
+                        listener.onClick()
                     }
                     .subscribe()
-                listener.onClick()
             }
         }
     }
