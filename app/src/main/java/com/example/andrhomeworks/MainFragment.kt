@@ -3,7 +3,6 @@ package com.example.andrhomeworks
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,13 +37,13 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                 RecyclerView.VERTICAL))
 
 
-         dbInstace.employeeDao().getAll()
+            dbInstace.employeeDao().getAll()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
                     adapter.setData(it)
                 }
-             .subscribe()
+                .subscribe()
 
 
 
