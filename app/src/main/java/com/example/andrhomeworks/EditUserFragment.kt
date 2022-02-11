@@ -38,10 +38,14 @@ class EditUserFragment : Fragment(R.layout.edituser_fragment) {
         dbInstance.employeeDao().getById(id)
             .subscribeOn(Schedulers.io())
             .flatMapCompletable {
+                it.name = binding.editName.text.toString()
+                it.company = binding.editCompany.text.toString()
+                it.salary = binding.editSalary.text.toString()
                 dbInstance.employeeDao().update(it)
             }
             .observeOn(AndroidSchedulers.mainThread())
             .doOnComplete {
+
                 Toast.makeText(context, "user updated", Toast.LENGTH_SHORT).show()
                 listener.onClick()
             }
