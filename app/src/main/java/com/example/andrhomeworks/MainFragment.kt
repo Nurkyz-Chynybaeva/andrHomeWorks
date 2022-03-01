@@ -14,24 +14,21 @@ import io.reactivex.schedulers.Schedulers
 
 class MainFragment : Fragment(R.layout.fragment_main) {
     private val apiS get() = Injector.seriesApi
-    private lateinit var listener: OnClicked
-    private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        listener = context as OnClicked
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentMainBinding.bind(view)
 
-        val adapter = Adapter { listener.onClick(it.episode_id!!) }
         val recycler = view.findViewById<RecyclerView>(R.id.recycler)
+        val adapter = Adapter{
+            Toast.makeText(requireContext(), "item-$it", Toast.LENGTH_SHORT).show()
+        }
         recycler.adapter = adapter
-        recycler.layoutManager = LinearLayoutManager(activity)
-        recycler.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
+        recycler.layoutManager = LinearLayoutManager(requireContext())
+        recycler.addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
 
         apiS.getEpisode()
             .subscribeOn(Schedulers.io())

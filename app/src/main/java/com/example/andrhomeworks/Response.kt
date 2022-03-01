@@ -1,7 +1,7 @@
 package com.example.andrhomeworks
 
 data class Episode (
-    val episode_id: Long?,
+    val id: Long?,
     val title: String?,
     val season: String?,
     val air_date: String?,
