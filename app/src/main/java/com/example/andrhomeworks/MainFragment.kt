@@ -32,6 +32,27 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         apiS.getEpisode()
             .subscribeOn(Schedulers.io())
+            .map {
+                val listEp = mutableListOf<Episode>()
+                it.results.forEach { it ->
+                    val episode = Episode(
+                        id = it.id,
+                        name = it.name,
+                        status = it.status,
+                        species = it.species,
+                        type = it.type,
+                        gender = it.gender,
+                        origin = it.origin,
+                        location = it.location,
+                        image = it.image,
+                        episode = it.episode,
+                        url = it.url,
+                        created = it.created
+                    )
+                    listEp.add(episode)
+                }
+                listEp.toList()
+            }
             .observeOn(AndroidSchedulers.mainThread())
             .doOnNext {
                 adapter.setData(it)

@@ -34,8 +34,17 @@ class Adapter(private val click: (episode: Episode) -> Unit): RecyclerView.Adapt
     class ViewHolder(itemView: View,
                      private val click: (episode: Episode) -> Unit): RecyclerView.ViewHolder(itemView) {
         fun bind(item: Episode) {
-            val txt = itemView.findViewById<AppCompatTextView>(R.id.txtItem)
-            txt.text = item.title
+            val txtName = itemView.findViewById<AppCompatTextView>(R.id.txtNameItem)
+            val txtStatus = itemView.findViewById<AppCompatTextView>(R.id.txtStatusItem)
+            val txtSpecies = itemView.findViewById<AppCompatTextView>(R.id.txtSpeciesItem)
+            val txtLocationName = itemView.findViewById<AppCompatTextView>(R.id.txtLocationNameItem)
+            val txtLocationUrl = itemView.findViewById<AppCompatTextView>(R.id.txtLocationUrlItem)
+
+            txtName.text = item.name
+            txtStatus.text = item.status
+            txtSpecies.text = item.species
+            txtLocationName.text = item.location.name
+            txtLocationUrl.text = item.location.url
 
             itemView.setOnClickListener {
                 click.invoke(item)
