@@ -14,14 +14,15 @@ class MainActivity : AppCompatActivity(), OnClicked {
     }
 
     override fun onClick(id: Long) {
-//        val fragment = DataFragment()
-//        val bundle = Bundle()
-//        bundle.putLong("keyId", id)
-//        fragment.arguments = bundle
-//
-//        supportFragmentManager.beginTransaction()
-//            .add(R.id.fragmentContainer, fragment)
-//            .commit()
+        val fragment = DataFragment()
+        val bundle = Bundle()
+        bundle.putLong("keyId", id)
+        fragment.arguments = bundle
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
 

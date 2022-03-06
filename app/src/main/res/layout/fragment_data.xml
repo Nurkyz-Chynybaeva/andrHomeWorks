@@ -1,19 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:gravity="center"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtData"
+        android:id="@+id/txt_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_season"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="season"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_air_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="air date"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="character"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_episode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="29sp"
-        android:text="datas"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="episode"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_series"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="29sp"
+        android:text="series"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
