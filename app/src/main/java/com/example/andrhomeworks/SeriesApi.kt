@@ -1,6 +1,5 @@
 package com.example.andrhomeworks
 
-import com.example.andrhomeworks.db.Episode
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.GET

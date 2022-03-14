@@ -36,11 +36,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())
         recycler.addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
-
-        refreshApp()
-    }
-
-    private fun getAll(){
+        
         apiS.getEpisodes()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -55,12 +51,31 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 Log.e("NCH", "refreshed")
             }
             .subscribe()
-    }
 
-    private fun refreshApp() {
-        binding.swipeToRefresh.setOnRefreshListener {
-            getAll()
-            Toast.makeText(requireContext(), "page refreshed!", Toast.LENGTH_SHORT).show()
-        }
+//        refreshApp()
     }
+//
+//    private fun getAll(){
+//        apiS.getEpisodes()
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .doOnNext {
+//                adapter.setData(it)
+//            }
+//            .doOnError{
+//                Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
+//            }
+//            .doFinally {
+//                binding.swipeToRefresh.isRefreshing = false
+//                Log.e("NCH", "refreshed")
+//            }
+//            .subscribe()
+//    }
+
+//    private fun refreshApp() {
+//        binding.swipeToRefresh.setOnRefreshListener {
+//            getAll()
+//            Toast.makeText(requireContext(), "page refreshed!", Toast.LENGTH_SHORT).show()
+//        }
+//    }
 }

@@ -34,7 +34,7 @@ class DataFragment : Fragment(R.layout.fragment_data) {
                     txtTitle.text = it.title
                     txtSeason.text = it.season
                     txtAirDate.text = it.air_date
-//                    txtCharacter.text = it.characters.toString()
+                    txtCharacter.text = it.characters.toString()
                     txtEpisode.text = it.episode
                     txtSeries.text = it.series
                 }
