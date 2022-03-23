@@ -1,15 +1,16 @@
-//package com.example.andrhomeworks.db
-//
-//import androidx.room.Entity
-//import androidx.room.PrimaryKey
-//
-//@Entity
-//data class Episode(
-//    @PrimaryKey(autoGenerate = true)
-//    val episode_id: Long?,
-//    val title: String,
-//    val season: String,
-//    val air_date: String,
-//    val episode: String,
-//    val series: String
-//)
+package com.example.andrhomeworks.db
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+data class Episode(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long,
+    val title: String,
+    val season: Int,
+    val airDate: String,
+    val characters: List<String>,
+    val episode: Int,
+    val series: String
+)

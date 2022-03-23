@@ -31,7 +31,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         val recycler = view.findViewById<RecyclerView>(R.id.recycler)
         adapter = Adapter{
-            listener.onClick(it.episode_id!!)
+            listener.onClick(it.id)
         }
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())

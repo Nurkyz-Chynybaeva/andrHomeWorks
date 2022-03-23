@@ -1,6 +1,7 @@
 package com.example.andrhomeworks
 
-import io.reactivex.Observable
+import androidx.lifecycle.LiveData
+import com.example.andrhomeworks.db.Episode
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -8,7 +9,7 @@ import retrofit2.http.Path
 interface SeriesApi {
 
     @GET("episodes")
-    fun getEpisodes(): Observable<List<Episode>>
+    fun getEpisodes(): LiveData<List<Episode>>
 
     @GET("episodes/{id}")
     fun getEpisodeById(@Path("id") id: Long): Single<List<Episode>>
