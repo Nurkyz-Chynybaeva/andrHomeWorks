@@ -2,6 +2,9 @@ package com.example.andrhomeworks
 
 import android.app.Application
 import android.util.Log
+import androidx.room.Room
+import androidx.viewbinding.BuildConfig
+import com.example.andrhomeworks.db.AppDatabase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -9,15 +12,18 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class App: Application() {
+class App : Application() {
 
     private val isDebug get() = BuildConfig.DEBUG
-
-    lateinit var seriesApi: SeriesApi
+    lateinit var database: AppDatabase
+    lateinit var api: Api
 
     override fun onCreate() {
         super.onCreate()
         mInstance = this
+        database = Room.databaseBuilder(this, AppDatabase::class.java, "db")
+            .fallbackToDestructiveMigration()
+            .build()
 
         val okHttpClient = OkHttpClient.Builder()
             .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
@@ -34,7 +40,7 @@ class App: Application() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        seriesApi = retrofit.create(SeriesApi::class.java)
+        api = retrofit.create(Api::class.java)
     }
 
     private fun httpLoggingInterceptor(): HttpLoggingInterceptor {
@@ -53,12 +59,15 @@ class App: Application() {
         }).setLevel(if (isDebug) HttpLoggingInterceptor.Level.HEADERS else HttpLoggingInterceptor.Level.NONE)
     }
 
-    companion object{
-        const val BASE_URL = "https://breakingbadapi.com/api/"
+    companion object {
+
+        const val BASE_URL = "https://rickandmortyapi.com/api/"
         const val TIMEOUT = 300L
+
         private var mInstance: App? = null
         val instance get() = mInstance!!
     }
 }
+
 val Any.Injector: App
     get() = App.instance

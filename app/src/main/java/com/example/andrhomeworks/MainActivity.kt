@@ -13,10 +13,10 @@ class MainActivity : AppCompatActivity(), OnClicked {
             .commit()
     }
 
-    override fun onClick(id: Long) {
+    override fun initDataFragment(id: Long){
         val fragment = DataFragment()
         val bundle = Bundle()
-        bundle.putLong("keyId", id)
+        bundle.putLong("KEY_ID", id)
         fragment.arguments = bundle
 
         supportFragmentManager.beginTransaction()

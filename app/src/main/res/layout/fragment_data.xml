@@ -1,62 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgItem"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_id"
+        android:id="@+id/txtNameItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="id"
+        android:text="name"
         android:textColor="@color/black"
         android:textSize="29sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_title"
+        android:id="@+id/txtStatusItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="title"
+        android:text="status"
         android:textColor="@color/black"
         android:textSize="29sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_season"
+        android:id="@+id/txtSpeciesItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="season"
+        android:text="species"
         android:textColor="@color/black"
         android:textSize="29sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_air_date"
+        android:id="@+id/txtTypeItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="air date"
+        android:text="type"
         android:textColor="@color/black"
         android:textSize="29sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_character"
+        android:id="@+id/txtGenderItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="character"
+        android:text="gender"
         android:textColor="@color/black"
         android:textSize="29sp" />
+
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_episode"
+        android:id="@+id/txtOriginItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="origin"
         android:textColor="@color/black"
-        android:textSize="29sp"
-        android:text="episode"/>
+        android:textSize="29sp" />
+
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_series"
+        android:id="@+id/txtLocationNameItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="location name"
         android:textColor="@color/black"
-        android:textSize="29sp"
-        android:text="series"/>
+        android:textSize="29sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtEpisodeItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="episode"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtUrlItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="url"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtCreatedItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="created"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
