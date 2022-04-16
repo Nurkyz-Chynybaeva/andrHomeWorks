@@ -2,4 +2,6 @@
     <string name="app_name">Home works</string>
     <string name="Open">open</string>
     <string name="Close">close</string>
+    <string name="no_internet">no internet</string>
+    <string name="unknown_error">unknown error</string>
 </resources>
