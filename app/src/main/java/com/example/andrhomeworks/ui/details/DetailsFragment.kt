@@ -4,8 +4,6 @@ import com.example.andrhomeworks.R
 import com.example.andrhomeworks.data.models.CharacterEntity
 import com.example.andrhomeworks.databinding.FragmentDetailsBinding
 import com.example.andrhomeworks.ui.OnClicked
-
-
 import android.content.Context
 import android.os.Bundle
 import android.view.View

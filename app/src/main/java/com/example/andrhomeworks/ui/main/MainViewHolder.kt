@@ -19,20 +19,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    application: Application
+    application: Application,
+    private val getEpisodeUseCase: GetAllCharacters,
+    private val getEpisodeAsLiveDataUseCase: GetCharactersAsLiveDataUseCase
+
 ) : AndroidViewModel(application) {
 
     private val disposable: CompositeDisposable = CompositeDisposable()
-
-    private val repo = Repo(
-        getApplication<App>().api,
-        getApplication<App>().database.characterDao()
-    )
-
-    private val getCharacterUseCase = GetAllCharacters(repo)
-    private val getCharacterAsLD = GetCharactersAsLiveDataUseCase(repo)
-
-    val charactersLiveData: LiveData<List<CharacterEntity>> = getCharacterAsLD()
+    val charactersLiveData: LiveData<List<CharacterEntity>> = getEpisodeAsLiveDataUseCase()
 
     private val _event = MutableLiveData<Event?>()
     val event: LiveData<Event?>
@@ -45,7 +39,7 @@ class MainViewModel @Inject constructor(
     fun loadCharacters() {
         _event.value = Event.ShowLoadingToast
         disposable.add(
-            getCharacterUseCase()
+            getEpisodeUseCase()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnTerminate { _event.value = Event.ShowFinishedLoadingToast }
                 .subscribe({

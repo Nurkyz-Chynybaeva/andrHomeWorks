@@ -23,10 +23,10 @@ class NetworkModule {
     @Provides
     @ApiWithInterceptor
     fun provideApiWithInterceptor(
-        okHttpClient: OkHttpClient,
+        okHttpClient: OkHttpClient
     ){
        Retrofit.Builder()
-            .baseUrl("https://rickandmortyapi.com/api/")
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
@@ -38,7 +38,7 @@ class NetworkModule {
     @ApiWithoutInterceptor
     fun provideApiWithoutInterceptor(): Api {
         return Retrofit.Builder()
-            .baseUrl("https://rickandmortyapi.com/api/")
+            .baseUrl(BASE_URL)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -64,6 +64,10 @@ class NetworkModule {
             }
         }).setLevel(if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
         else HttpLoggingInterceptor.Level.NONE)
+    }
+
+    companion object{
+        const val BASE_URL = "https://breakingbadapi.com"
     }
 }
 

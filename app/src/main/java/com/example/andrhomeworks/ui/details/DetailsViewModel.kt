@@ -1,7 +1,5 @@
 package com.example.andrhomeworks.ui.details
 
-import com.example.andrhomeworks.App
-import com.example.andrhomeworks.data.repo.Repo
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -14,18 +12,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    application: Application
+    application: Application,
+    private val getCharacterByIdUseCase: GetCharacterUseCase
 
 ) : AndroidViewModel(application) {
 
-
     private val disposable: CompositeDisposable = CompositeDisposable()
-    private val repo = Repo(
-        getApplication<App>().api,
-        getApplication<App>().database.characterDao()
-    )
-    private val getCharacterByIdUseCase: GetCharacterUseCase =
-        GetCharacterUseCase(repo)
     private var id: Long = -1
 
     private val _event = MutableLiveData<Event?>()
