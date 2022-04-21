@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "721677087772",
+    "project_id": "ayimdar-41de5",
+    "storage_bucket": "ayimdar-41de5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721677087772:android:468407e4afca6c13b7dbd9",
+        "android_client_info": {
+          "package_name": "com.example.andrhomeworks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721677087772-0puj3ibu6kapi71849ome7srs7acv8pg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIt9VFi_cVJQ-RHDsX0H_Eym6UMBewSsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721677087772-0puj3ibu6kapi71849ome7srs7acv8pg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

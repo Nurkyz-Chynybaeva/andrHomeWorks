@@ -20,7 +20,6 @@ class StorageModule {
         return appDatabase.characterDao()
     }
 
-    @Singleton
     @Provides
     fun provideDatabase(
         @ApplicationContext context: Context
@@ -30,4 +29,3 @@ class StorageModule {
             .build()
     }
 }
-// annotation Singleton, anshn context,
