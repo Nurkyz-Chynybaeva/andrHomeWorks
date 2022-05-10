@@ -4,18 +4,19 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.andrhomeworks.domain.use_case.GetCharacterUseCase
 import com.example.andrhomeworks.ui.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    application: Application,
     private val getCharacterByIdUseCase: GetCharacterUseCase
 
-) : AndroidViewModel(application) {
+) : ViewModel() {
 
     private val disposable: CompositeDisposable = CompositeDisposable()
     private var id: Long = -1

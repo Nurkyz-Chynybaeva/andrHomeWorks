@@ -4,9 +4,10 @@ import com.example.andrhomeworks.data.models.CharacterEntity
 import com.example.andrhomeworks.data.repo.Repo
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
+import javax.inject.Inject
 
-class GetCharacterUseCase(
-    private val repo: Repo
+class GetCharacterUseCase @Inject constructor(
+    private val repo: Repo,
 ) {
 
     operator fun invoke(id: Long): Single<CharacterEntity> {

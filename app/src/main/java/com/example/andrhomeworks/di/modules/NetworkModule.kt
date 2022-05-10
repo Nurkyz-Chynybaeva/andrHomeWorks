@@ -23,9 +23,9 @@ class NetworkModule {
     @Provides
     @ApiWithInterceptor
     fun provideApiWithInterceptor(
-        okHttpClient: OkHttpClient
-    ){
-       Retrofit.Builder()
+        okHttpClient: OkHttpClient,
+    ): Api {
+        return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -47,9 +47,9 @@ class NetworkModule {
 
     @Provides
     fun provideOkHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor
-    ) {
-        OkHttpClient.Builder()
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+    ): OkHttpClient {
+        return OkHttpClient.Builder()
             .connectTimeout(300L, TimeUnit.SECONDS)
             .readTimeout(300L, TimeUnit.SECONDS)
             .writeTimeout(300L, TimeUnit.SECONDS)
@@ -57,6 +57,7 @@ class NetworkModule {
             .build()
     }
 
+    @Provides
     fun httpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor(logger = object : HttpLoggingInterceptor.Logger {
             override fun log(message: String) {
@@ -66,21 +67,7 @@ class NetworkModule {
         else HttpLoggingInterceptor.Level.NONE)
     }
 
-    companion object{
+    companion object {
         const val BASE_URL = "https://breakingbadapi.com"
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
